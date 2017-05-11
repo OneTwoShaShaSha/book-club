@@ -1,20 +1,44 @@
 body{
     font-family: "Vollkorn", serif;
-    background-color:lemonchiffon;            
+    background-color:/*lemonchiffon*/#FFFFEB;  
 }
-
 /* for jumbotron */
 .jumbotron{
-    background-image: url('book1.jpg');
+    background-image: url('book2.jpeg');
     background-size: cover;
+    background-repeat: none;
     background-position-y: 450px;
     color: white;
-    text-shadow: 1px 1px 2px black;;
+    text-shadow: 5px 5px 10px black;;
+    margin:0px;
+    font-weight: 500;
+    font-size: 65px;
     text-align: center;
-    font-size: 60px;
-    margin: 0px;
+}
+img#iitk{
+    height:100px;
+    float:left;
+    vertical-align: center;
+}
+img#gymkhana{
+    height:80px;
+    float:right;
+    vertical-align:center;
 }
 /*for navbar*/
+#nav {
+  width: 100%;
+  position:static;
+  top:-32px;
+  -webkit-transition: all .6s ease-in-out;
+}
+
+#nav.affix {
+   position: fixed;
+   top: 0;
+   z-index:10;
+}
+
 @media (min-width: 767px) {
   .navbar-nav.nav-justified > li{
       float:none;
@@ -50,9 +74,12 @@ body{
 .navbar-toggle {
 	outline:0;
 }
+
 /*For search bar*/
+
 .dropdown.dropdown-lg .dropdown-menu {
     margin-top: -1px;
+    margin-bottom: 10px;
     padding: 6px 20px;
 }
 .input-group-btn .btn-group {
@@ -81,14 +108,14 @@ body{
 
 @media screen and (min-width: 768px) {
     #adv-search {
-        width: 350px;
+        width: 380px;
         margin: 0 auto;
     }
     .dropdown.dropdown-lg {
         position: static !important;
     }
-    .dropdown.dropdown-lg .dropdown-menu {
-        min-width: 350px;
+    .dropdown.dropdown-lg .dropdown-menu{
+        min-width: 380px;
     }
 }
 /*For carousel*/
@@ -123,4 +150,7 @@ body{
 .multi-item-carousel .carouse-control.left,
 .multi-item-carousel .carouse-control.right {
   background-image: none;
+}
+.custom-form-1{
+    margin-top: 2em;
 }
