@@ -115,7 +115,7 @@ img#gymkhana{
         position: static !important;
     }
     .dropdown.dropdown-lg .dropdown-menu{
-        min-width: 380px;
+        min-width: 370px;
     }
 }
 /*For carousel*/
@@ -153,4 +153,14 @@ img#gymkhana{
 }
 .custom-form-1{
     margin-top: 2em;
+}
+.row.quote{
+    font-family: 'Dancing Script', cursive;
+    background-color: #2e2e2e;
+    color: whitesmoke;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 20px;
+    padding:10px;
 }
