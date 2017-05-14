@@ -116,7 +116,7 @@ img#gymkhana{
         position: static !important;
     }
     .dropdown.dropdown-lg .dropdown-menu{
-        min-width: 370px;
+        min-width: 380px;
     }
 }
 /*For carousel*/
