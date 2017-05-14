@@ -1,5 +1,5 @@
 body{
-    font-family: "Vollkorn", serif;
+    font-family: "Merriweather", serif;
     background-color:/*lemonchiffon*/#FFFFEB;  
 }
 /* for jumbotron */
@@ -11,6 +11,7 @@ body{
     color: white;
     text-shadow: 5px 5px 10px black;;
     margin:0px;
+    font-family: "EB Garamond", serif;
     font-weight: 500;
     font-size: 65px;
     text-align: center;
