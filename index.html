@@ -50,8 +50,8 @@
 </div><!--/.navbar -->
 
 <div class="container content">
-    <div class="row">
-    <div class="col-xs-12 col-sm-4 col-sm-push-8">
+    
+    <div class="col-sm-4 col-sm-push-8">
             <div class="input-group" id="adv-search">
                 <input type="text" class="form-control" placeholder="Search for books..." />
                 <div class="input-group-btn">
@@ -89,40 +89,24 @@
             </div>
             
 
-    <div class="col-xs-12 col-sm-8 col-sm-pull-4">
-        <h4> Latest arrivals: </h4>
-      <div class="carousel slide multi-item-carousel" id="theCarousel">
-        <div class="carousel-inner">
-          <div class="item active">
-            <div class="col-xs-4"><a href="#1"><img src="cover2.jpg" class="img-responsive"></a></div>
-          </div>
-          <div class="item">
-            <div class="col-xs-4"><a href="#1"><img src="cover1.jpg" class="img-responsive"></a></div>
-          </div>
-          <div class="item">
-            <div class="col-xs-4"><a href="#1"><img src="cover3.jpg" class="img-responsive"></a></div>
-          </div>
-          <div class="item">
-            <div class="col-xs-4"><a href="#1"><img src="http://placehold.it/300/673ab7/000000" class="img-responsive"></a></div>
-          </div>
-          <div class="item">
-            <div class="col-xs-4"><a href="#1"><img src="http://placehold.it/300/4caf50/000000" class="img-responsive"></a></div>
-          </div>
-          <div class="item">
-            <div class="col-xs-4"><a href="#1"><img src="http://placehold.it/300/8bc34a/000000" class="img-responsive"></a></div>
-          </div>
-          <!-- add  more items here -->
-          <!-- Example item start:  -->
-          
-          <div class="item">
-            <div class="col-xs-4"><a href="#1"><img src="http://placehold.it/300/8bc34a/000000" class="img-responsive"></a></div>
-          </div>
-          
-          <!--  Example item end -->
-        </div>
-        <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
-        <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+    <div class="col-sm-8 col-sm-pull-2">
+      <h4> Latest arrivals: </h4>
+      <div class="carousel">
+        <a class="carousel-item" href="#one!"><img src=cover1.jpg></a>
+        <a class="carousel-item" href="#two!"><img src=cover2.jpg></a>
+        <a class="carousel-item" href="#three!"><img src=cover3.jpg></a>
+        <a class="carousel-item" href="#one!"><img src=cover1.jpg></a>
+        <a class="carousel-item" href="#two!"><img src=cover2.jpg></a>
+        <a class="carousel-item" href="#three!"><img src=cover3.jpg></a>
       </div>
+      <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+      <script type="text/javascript" src="js/materialize.js"></script>
+      <script type="text/javascript">
+      $(document).ready(function(){
+          $('.carousel').carousel();
+        });
+      </script>
+    </div>
       <h2> About us </h2>
       <p>
         People read for various reasons. Some read to broaden their perspective of the world and learn new things, some read to learn how to articulate their thoughts, some read to get inspiration, some read to get their mind free and see faraway places through the eye of their mind, some read to relax their mind after a tiring day full of hard work, deadlines and reports, while some read just for fun.
@@ -146,9 +130,6 @@
   "There is no friend as loyal as a book." - Ernest Hemingway
   </div>
 </div>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="scripts.js"></script>
 </body>
 </html>
