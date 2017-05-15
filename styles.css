@@ -2,6 +2,12 @@ body{
     font-family: "Merriweather", serif;
     background-color:/*lemonchiffon*/#FFFFEB;  
 }
+h3{
+    text-align: center;
+}
+p{
+    text-align: justify;
+}
 /* for jumbotron */
 .jumbotron{
     background-image: url('book2.jpeg');
