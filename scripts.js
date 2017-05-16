@@ -29,7 +29,7 @@ $('#nav .navbar-nav li>a').click(function(){
     else 
       $(".content").css("margin-top", "0px");
 });*/
-
+/* Unnecessary while multi-carousel isn't being used 
 // Instantiate the Bootstrap carousel
 $('.multi-item-carousel').carousel({
   interval: false
@@ -49,4 +49,9 @@ $('.multi-item-carousel .item').each(function(){
   } else {
   	$(this).siblings(':first').children(':first-child').clone().appendTo($(this));
   }
+}); */
+
+//For new carousel
+$(document).ready(function(){
+          $('.carousel').carousel();
 });
