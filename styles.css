@@ -32,6 +32,18 @@ img#gymkhana{
     float:right;
     vertical-align:center;
 }
+img.contact_panel_c{
+    object-fit: cover;
+    height:300px;
+    width:300px;
+    padding: 20px;
+}
+img.contact_panel_s{
+    object-fit: cover;
+    height:250px;
+    width:250px;
+    padding:15px;
+}
 /*for navbar*/
 #nav {
   width: 100%;
