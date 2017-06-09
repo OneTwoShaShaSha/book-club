@@ -76,7 +76,6 @@ function addRow(entry, count)
 
 function cat_search(concept, que){
   document.getElementById("catalogue").innerHTML = "<tr><thead><th>#</th><th>Cover</th><th>Title</th><th>Author</th><th>Rating</th><th>Genre</th></thead></tr>";
-  document.getElementById("query").innerHTML = que;
   console.log(concept);
   console.log(que);
   var query = new RegExp(que, "i");
@@ -118,6 +117,7 @@ $(document).ready(function(e){
     {
       var con = sessionStorage.getItem("concept");
       var que = sessionStorage.getItem("query");
+      $('#query').innerHTML = que;
       cat_search(con, que);
     }
     $('.search-panel .dropdown-menu').find('a').click(function(e) {
