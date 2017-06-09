@@ -75,7 +75,8 @@ function addRow(entry, count)
 }
 
 function cat_search(concept, que){
-  document.getElementById("catalogue").innerHTML = "<tr><thead><th>#</th><th>Cover</th><th>Title</th><th>Author</th><th>Genre</th></thead></tr>";
+  document.getElementById("catalogue").innerHTML = "<tr><thead><th>#</th><th>Cover</th><th>Title</th><th>Author</th><th>Rating</th><th>Genre</th></thead></tr>";
+  document.getElementById("query").innerHTML = que.source;
   console.log(concept);
   console.log(que);
   var query = new RegExp(que, "i");
