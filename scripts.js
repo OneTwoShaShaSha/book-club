@@ -64,12 +64,14 @@ function addRow(entry, count)
   var cell3 = row.insertCell(2);
   var cell4 = row.insertCell(3);
   var cell5 = row.insertCell(4);
+  var cell6 = row.insertCell(5);
                   
   cell1.innerHTML = count;
   cell2.innerHTML = "<img src=" + entry.fields.image + "></img>";
   cell3.innerHTML = entry.fields.Title;
   cell4.innerHTML = entry.fields.Author;
-  cell5.innerHTML = entry.fields.Genre;
+  cell5.innerHTML = "<div class=\"star-ratings-sprite\"><span style=\"width:" + parseFloat(entry.fields.rating)*20 + "%\" class=\"star-ratings-sprite-rating\"></span></div>";
+  cell6.innerHTML = entry.fields.Genre;
 }
 
 function cat_search(concept, que){
@@ -135,8 +137,3 @@ $(document).ready(function(e){
   });
     
   
-/*
-//For new carousel
-$(document).ready(function(){
-          $('.carousel').carousel();
-});*/
