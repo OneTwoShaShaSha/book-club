@@ -32,24 +32,28 @@ $('#nav .navbar-nav li>a').click(function(){
 
 // Instantiate the Bootstrap carousel
 $('.multi-item-carousel').carousel({
-  interval: false
+  interval: 3600
 });
 
-// for every slide in carousel, copy the next slide's item in the slide.
-// Do the same for the next, next item.
-$('.multi-item-carousel .item').each(function(){
-  var next = $(this).next();
-  if (!next.length) {
-    next = $(this).siblings(':first');
-  }
-  next.children(':first-child').clone().appendTo($(this));
-  
-  if (next.next().length>0) {
-    next.next().children(':first-child').clone().appendTo($(this));
-  } else {
-  	$(this).siblings(':first').children(':first-child').clone().appendTo($(this));
-  }
-}); 
+(function(){
+  $('.multi-item-carousel .item').each(function(){
+    var itemToClone = $(this);
+
+    for (var i=1;i<3;i++) {
+      itemToClone = itemToClone.next();
+
+      // wrap around if at end of item collection
+      if (!itemToClone.length) {
+        itemToClone = $(this).siblings(':first');
+      }
+
+      // grab item, clone, add marker class, add to collection
+      itemToClone.children(':first-child').clone()
+        .addClass("cloneditem-"+(i))
+        .appendTo($(this));
+    }
+  });
+}());
 
 function addRow(entry, count)
 {  
