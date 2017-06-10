@@ -105,7 +105,8 @@ function cat_search(concept, que){
                 if ((result[index].fields.Genre).search(query) !== -1)
                   {addRow(result[index], count); count++}
               }
-            } 
+            }
+            $("#wait").innerHTML = (count - 1) + " results found."; 
         }
       }); 
 }
