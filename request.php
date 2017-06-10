@@ -1,48 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Request a Book - Gymkhana Library, IIT Kanpur</title>
+    <title>Book Club, IIT Kanpur</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="./styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|EB+Garamond|Merriweather" rel="stylesheet"> 
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-
-    <!-- ****** faviconit.com favicons ****** -->
-	  <link rel="shortcut icon" href="favicons/favicon.ico">
-	  <link rel="icon" sizes="16x16 32x32 64x64" href="favicons/favicon.ico">
-	  <link rel="icon" type="image/png" sizes="196x196" href="favicons/favicon-192.png">
-	  <link rel="icon" type="image/png" sizes="160x160" href="favicons/favicon-160.png">
-	  <link rel="icon" type="image/png" sizes="96x96" href="favicons/favicon-96.png">
-	  <link rel="icon" type="image/png" sizes="64x64" href="favicons/favicon-64.png">
-  	<link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32.png">
-  	<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16.png">
-  	<link rel="apple-touch-icon" href="favicons/favicon-57.png">
-  	<link rel="apple-touch-icon" sizes="114x114" href="favicons/favicon-114.png">
-  	<link rel="apple-touch-icon" sizes="72x72" href="favicons/favicon-72.png">
-  	<link rel="apple-touch-icon" sizes="144x144" href="favicons/favicon-144.png">
-	  <link rel="apple-touch-icon" sizes="60x60" href="favicons/favicon-60.png">
-	  <link rel="apple-touch-icon" sizes="120x120" href="favicons/favicon-120.png">
-  	<link rel="apple-touch-icon" sizes="76x76" href="favicons/favicon-76.png">
-	  <link rel="apple-touch-icon" sizes="152x152" href="favicons/favicon-152.png">
-  	<link rel="apple-touch-icon" sizes="180x180" href="favicons/favicon-180.png">
-	  <meta name="msapplication-TileColor" content="#FFFFFF">
-  	<meta name="msapplication-TileImage" content="favicons/favicon-144.png">
-	  <meta name="msapplication-config" content="favicons/browserconfig.xml">
-	  <!-- ****** faviconit.com favicons ****** -->
-
+   <link href="https://fonts.googleapis.com/css?family=Dancing+Script|EB+Garamond|Merriweather" rel="stylesheet"> 
 </head>
 <body>
-
-<div id="fb-root"></div>
-  <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.9";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
 
     <header class="masthead" style="margin: 0px">
     <div class="jumbotron">
@@ -66,8 +30,8 @@
         <ul class="nav navbar-nav nav-justified">
           <li><a href="./index.html">Home</a></li>
           <li><a href="./rules.html">Rules</a></li>
-          <li><a href="./catalogue.html">Catalogue</a></li>
           <li class="active"><a href="./request.html">Request a Book</a></li>
+          <li><a href="./events.html">Events</a></li>
           <li><a href="./contact.html">Contact Us</a></li>
             </ul>
           </li>
@@ -96,15 +60,31 @@
             <button class="btn btn-default" type="submit" id="search-btn"><span class="glyphicon glyphicon-search"></span></button>
         </span>
     </div>
-    <br>
-    <div style="border:0.5px solid darkgray; padding:10px" >
-      <center><h4>Library Timings</h4>
-      Semester: 9 pm to 10 pm, everyday<br>
-      Summers: 8:30 pm to 10:30 pm, weekends</center>
     </div>
-    <br>
-    <div class="fb-page" data-href="https://www.facebook.com/BookClub.IITKanpur/" data-tabs="timeline,events,messages" data-width="360" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/BookClub.IITKanpur/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/BookClub.IITKanpur/">Gymkhana Library,IIT Kanpur</a></blockquote></div>
-    </div>
+
+    <?php
+      $user = $_POST['userName'];
+      $roll = $_POST['rollNo'];
+      $email = $_POST['emailID'];
+      $book = $_POST['bookName'];
+      $author = $_POST['authorName'];
+      $add = $_POST['additional'];
+      $ver = $_POST['verify'];
+      $from = 'From: $userName (via the Gymkhana Library Website)'; 
+      $to = 'onetwoshashasha@gmail.com'; 
+      $subject = 'Request for addition of new book to library';
+
+      $body = "From: $user\n Roll no.: $roll\nE-Mail: $email\n Book Name: $book\nAuthor Name: $author\nAdditional notes: $add\nChecked catalogue? $ver";
+
+      if ($_POST['submit'])
+      {
+          if (mail ($to, $subject, $body, $from)) { 
+	          echo '<p>Your request has been sent. Thank you!</p>';
+	        } else { 
+	          echo '<p>Something went wrong, please try again.</p>'; 
+	        } 
+      }
+    ?>
 
     
 <div class="col-xs-12 col-sm-8 col-sm-pull-4">
@@ -145,7 +125,7 @@
           <div class="checkbox">
             <label for="verify"><input type="checkbox" style="vertical-align: top" name="verify">Have you checked our catalogue for the book?</label>
           </div>
-          <button type="submit" class="btn btn-primary">Request</button>
+          <button type="submit" class="btn btn-primary" name="submit">Request</button>
         </form>
       </div>
     </div>

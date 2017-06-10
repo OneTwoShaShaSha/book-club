@@ -55,6 +55,40 @@ $('.multi-item-carousel').carousel({
   });
 }());
 
+function shorten(){
+	var showChar = 300;
+	var ellipsestext = "...";
+	var moretext = "more";
+	var lesstext = "less";
+	$('.more').each(function() {
+		var content = $(this).html();
+
+		if(content.length > showChar) {
+
+			var c = content.substr(0, showChar);
+			var h = content.substr(showChar-1, content.length - showChar);
+
+			var html = c + '<span class="moreelipses">'+ellipsestext+'</span>&nbsp;<span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">'+moretext+'</a></span>';
+
+			$(this).html(html);
+		}
+
+	});
+
+	$(".morelink").click(function(){
+		if($(this).hasClass("less")) {
+			$(this).removeClass("less");
+			$(this).html(moretext);
+		} else {
+			$(this).addClass("less");
+			$(this).html(lesstext);
+		}
+		$(this).parent().prev().toggle();
+		$(this).prev().toggle();
+		return false;
+	});
+}
+
 function addRow(entry, count)
 {  
   var table = document.getElementById("catalogue");
@@ -65,26 +99,29 @@ function addRow(entry, count)
   var cell4 = row.insertCell(3);
   var cell5 = row.insertCell(4);
   var cell6 = row.insertCell(5);
+  var cell7 = row.insertCell(6);
                   
   cell1.innerHTML = count;
   cell2.innerHTML = "<img src=" + entry.fields.image + "></img>";
   cell3.innerHTML = entry.fields.Title;
   cell4.innerHTML = entry.fields.Author;
-  cell5.innerHTML = "<div class=\"star-ratings-sprite\"><span style=\"width:" + parseFloat(entry.fields.rating)*20 + "%\" class=\"star-ratings-sprite-rating\"></span></div>";
-  cell6.innerHTML = entry.fields.Genre;
+  cell5.innerHTML = "<div class=\"more\">"+entry.fields.description+"</div>"; 
+  cell6.innerHTML = "<div class=\"star-ratings-sprite\"><span style=\"width:" + parseFloat(entry.fields.rating)*20 + "%\" class=\"star-ratings-sprite-rating\"></span></div>";
+  cell7.innerHTML = entry.fields.Genre;
 }
 
 function cat_search(concept, que){
-  document.getElementById("catalogue").innerHTML = "<tr><thead><th>#</th><th>Cover</th><th>Title</th><th>Author</th><th>Rating</th><th>Genre</th></thead></tr>";
-  console.log(concept);
-  console.log(que);
+  $("#quote").css({"position":"fixed","bottom":"0","width":"100%","margin":"0"});
+  if(concept === null || que === null);
+  else{
+  document.getElementById("catalogue").innerHTML = "<tr><thead><th>#</th><th>Cover</th><th>Title</th><th>Author</th><th>Description</th><th>Rating</th><th>Genre</th></thead></tr>";
   var query = new RegExp(que, "i");
-  var count = 1;
   $.ajax({
           dataType: "json",
           url: "./data.json",
           mimeType: "application/json",
           success: function(result){
+            document.getElementById("wait").innerHTML = "Results may take a few seconds to load.";
             var len = result.length;
             var table = document.getElementById("catalogue");
             var count = 1;
@@ -106,9 +143,13 @@ function cat_search(concept, que){
                   {addRow(result[index], count); count++}
               }
             }
-            $("#wait").innerHTML = (count - 1) + " results found."; 
+            shorten();
+            if (count > 1)
+                $("#quote").css({"position":"","bottom":"","width":"","margin":""});
+            document.getElementById("wait").innerHTML = (count - 1) + " results found.";
         }
       }); 
+    }
 }
 
 //Search bar
