@@ -114,6 +114,7 @@ function cat_search(concept, que){
   $("#quote").css({"position":"fixed","bottom":"0","width":"100%","margin":"0"});
   if(concept === null || que === null);
   else{
+  document.getElementById("wait").innerHTML = "Results may take a few seconds to load.";
   document.getElementById("catalogue").innerHTML = "<tr><thead><th>#</th><th>Cover</th><th>Title</th><th>Author</th><th>Description</th><th>Rating</th><th>Genre</th></thead></tr>";
   var query = new RegExp(que, "i");
   $.ajax({
@@ -121,7 +122,6 @@ function cat_search(concept, que){
           url: "./data.json",
           mimeType: "application/json",
           success: function(result){
-            document.getElementById("wait").innerHTML = "Results may take a few seconds to load.";
             var len = result.length;
             var table = document.getElementById("catalogue");
             var count = 1;
